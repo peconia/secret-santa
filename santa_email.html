@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Salainen Joulupukki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style type="text/css" rel="stylesheet" media="all">
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #c0392b;
+        }
+
+        .highlight {
+            color: #ffffff;
+            background-color: #c0392b;
+            padding: 1.25rem;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        .reminder {
+            font-style: italic;
+            color: #8d8d8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tervehdys salainen tonttuilija! 🧑🏻‍🎄</h1>
+        <p>Joulun taikaa on taas ilmassa, ja sen myötä on aika herätellä henkiin salaisen joulupukin perinne! Jos tämä
+            riemukas leikki ei ole sinulle entuudestaan tuttu, niin kerrataanpa lyhyesti. Salaisessa joulupukissa ryhmä
+            ihmisiä arpoo toisilleen lahjojen saajat anonyymisti. Se on mitä mainioin tapa levittää joulumieltä ja
+            ilahduttaa jotakuta lähipiiristä.</p>
+        <p>Mutta nyt asiaan! Kenelle sinä pääset tänä vuonna toimimaan tonttuna?</p>
+        <p>🥁 rumpujen pärinää... 🥁</p>
+        <p>🇫🇮 Sinun lahjansaajaksesi on arvottu / 🇸🇪 Din presentmottagare är / 🇬🇧 The person you should get a gift for is</p>
+        <h1 class="highlight">✨ {{gift_recipient_name}} ✨</h1>
+        <p>Muistathan, että salaisen joulupukin juju on pitää oma henkilöllisyys visusti salassa aina lahjojen
+            luovutushetkeen asti. Laita siis tonttulakki päähän, anna luovuutesi virrata ja valitse lahja, joka saa
+            lahjansaajan joulumielen hehkumaan. Sopiva hintaluokka lahjalle on noin 25-30 euroa, mutta voit toki käyttää
+            omaa harkintaasi.</p>
+        <p><strong>🎁 Merkitse pakettiin vain lahjansaajan nimi, ja lähettäjäksi vaikkapa "Joulupukki" tai jokin muu
+            kekseliäs
+            nimimerkki. Näin säilytät salaperäisyyden viimeiseen asti!</strong></p>
+        <p>Iloisia lahjahetkiä ja taianomaista joulunaikaa kaikille! 🎄</p>
+        <h3>Lahjaringissä mukana ovat:</h3>
+        <ul>
+            {{participants}}
+        </ul>
+        <p class="reminder">Psst! Muistathan ettei sinun tarvitse hankkia lahjaa kaikille listalla oleville, vain omalle lahjansaajallesi riittää.</p>
+    </div>
+</body>
+</html>
