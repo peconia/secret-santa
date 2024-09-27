@@ -5,7 +5,7 @@ import secrets
 from messenger import process_santa_assignment_emails
 
 MAX_ATTEMPTS = 200
-EMAIL_SUBJECT = '**TEST** Your Secret Santa Assignment'
+EMAIL_SUBJECT = 'Salainen joulupukki 🎅🏽 Secret Santa'
 
 
 def read_google_sheet(sheet_url):

@@ -4,9 +4,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-def hydrate_message(message, target, participants_list):
-    # replace {{name}} with the name of the target
-    message = message.replace('{{gift_recipient_name}}', target['name'])
+def hydrate_message(message, email_recipient, gift_recipient, participants_list):
+    message = message.replace('{{email_recipient_name}}', email_recipient['name'])
+    message = message.replace('{{gift_recipient_name}}', gift_recipient['name'])
     message = message.replace('{{participants}}', participants_list)
     return message
 
@@ -18,11 +18,11 @@ def format_html_participants(participants):
     return participants_list
 
 
-def html_email_template(recipient, participants_html):
+def html_email_template(email_recipient, gift_recipient,participants_html):
     # import html template from santa_email.html
     with open('santa_email.html', 'r', encoding='utf-8') as file:
         html_message = file.read()
-        message = hydrate_message(html_message, recipient, participants_html)
+        message = hydrate_message(html_message, email_recipient, gift_recipient, participants_html)
         return message
 
 
@@ -35,7 +35,7 @@ def process_santa_assignment_emails(allocated_pairs, participants, subject):
         gift_recipient = pair[1]
 
         # print('{} is sending a gift to {}'.format(email_recipient['name'], gift_recipient['name']))
-        message_html = html_email_template(gift_recipient, html_participants)
+        message_html = html_email_template(email_recipient, gift_recipient, html_participants)
 
         emails_to_send.append({'recipient': email_recipient['email'], 'message_html': message_html})
 
