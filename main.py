@@ -2,10 +2,11 @@ import csv
 import random
 import requests
 import secrets
+from datetime import date
 from messenger import process_santa_assignment_emails
 
 MAX_ATTEMPTS = 200
-EMAIL_SUBJECT = 'Salainen joulupukki 🎅🏽 Secret Santa'
+EMAIL_SUBJECT = f'🤫 Salainen tonttutehtävä {date.today().year} 🎅🏽 Secret Santa'
 
 
 def read_google_sheet(sheet_url):

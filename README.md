@@ -42,3 +42,14 @@ email subject. If a suitable assignment cannot be found after the maximum number
 MAX_ATTEMPTS = 200
 EMAIL_SUBJECT = 'Your Secret Santa Assignment'
 ```
+
+## Previewing the email
+
+To check how the email looks without drawing names or emailing participants, run:
+
+```bash
+python preview.py
+```
+
+This fills the template with sample names, prints the subject line, and writes `preview.html`. Open that file in a
+browser to see the email. `preview.html` is in `.gitignore`, so it won't be committed.
