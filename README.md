@@ -12,6 +12,9 @@ You will need a public (can be temporary for when running the script) google she
 - **Name** (will be shown to others as teh recipient of the gift)
 - **Email** (message will be sent to this email)
 - **Household name** (any unique identifier for the household, people in the same household cannot be assigned to each other)
+- **Last target** (optional, comma-separated names this person has recently bought a gift for, e.g. `Maija, Pekka`.
+  They will not be assigned these people again. This only works one way: if Pekka lists Maija, Maija can still get
+  Pekka. Names must match the Name column; spaces and upper/lower case are ignored)
 
 You will also need gmail account with an app password. You can create an app password by following the instructions 
 [here](https://support.google.com/accounts/answer/185833?hl=en).
@@ -30,7 +33,7 @@ cp secrets-example.py secrets.py
 
 3. Run the script
 ```bash
-python secret_santa.py
+python main.py
 ```
 
 ## Usage
@@ -40,5 +43,18 @@ email subject. If a suitable assignment cannot be found after the maximum number
 
 ```python
 MAX_ATTEMPTS = 200
-EMAIL_SUBJECT = 'Your Secret Santa Assignment'
+EMAIL_SUBJECT = f'🤫 Salainen tonttutehtävä {date.today().year} 🎅🏽 Secret Santa'
 ```
+
+The current year is added to the subject automatically.
+
+## Previewing the email
+
+To check how the email looks without drawing names or emailing participants, run:
+
+```bash
+python preview.py
+```
+
+This fills the template with sample names, prints the subject line, and writes `preview.html`. Open that file in a
+browser to see the email. `preview.html` is in `.gitignore`, so it won't be committed.
