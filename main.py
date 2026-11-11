@@ -17,11 +17,30 @@ def read_google_sheet(sheet_url):
     return list(reader)
 
 
+def normalise_name(name):
+    return name.strip().casefold()
+
+
+def parse_last_targets(cell):
+    # "Maija, Pekka ,Joonas" -> {'maija', 'pekka', 'joonas'}; empty cell -> empty set
+    return {normalise_name(name) for name in cell.split(',') if name.strip()}
+
+
 def participant_list(data):
     participants = []
     for row in data:
-        participants.append({'name': row[0], 'email': row[1], 'household': row[2]})
+        last_targets = parse_last_targets(row[3]) if len(row) > 3 else set()
+        participants.append({'name': row[0], 'email': row[1], 'household': row[2], 'last_targets': last_targets})
+    warn_unknown_last_targets(participants)
     return participants
+
+
+def warn_unknown_last_targets(participants):
+    # a typo in "last target" would silently allow a repeat, so flag names that match nobody
+    known_names = {normalise_name(p['name']) for p in participants}
+    for participant in participants:
+        for name in participant['last_targets'] - known_names:
+            print(f"Warning: {participant['name']}'s last target '{name}' does not match any participant")
 
 
 def naive_allocate_santa(participants):
@@ -52,6 +71,9 @@ def check_validity(allocated):
         if pair[0]['household'] == pair[1]['household']:
             # print('Error: ' + pair[0]['name'] + ' is assigned to someone in their household')
             return False
+        if normalise_name(pair[1]['name']) in pair[0]['last_targets']:
+            # print('Error: ' + pair[0]['name'] + ' already gave a gift to ' + pair[1]['name'] + ' recently')
+            return False
     print('All assignments are valid')
     return True
 
@@ -76,6 +98,10 @@ def santa():
     data = read_google_sheet(sheet_url)
     participants = participant_list(data)
     allocated = get_valid_santa_assignments(participants)
+
+    # for giver, recipient in sorted(allocated, key=lambda pair: pair[0]['name'].casefold()):
+    #     print(f"{giver['name']} → {recipient['name']}   (last: {', '.join(giver['last_targets']) or '-'})")
+
     process_santa_assignment_emails(allocated, participants, EMAIL_SUBJECT)
 
 
