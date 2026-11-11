@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Salainen Joulupukki</title>
+    <title>Salainen tonttutehtävä</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style type="text/css" rel="stylesheet" media="all">
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -39,28 +39,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tervehdys salainen tonttuilija {{email_recipient_name}}! 🧑🏻‍🎄</h1>
-        <p>Joulun taikaa on taas ilmassa, ja sen myötä on aika herätellä henkiin salaisen joulupukin perinne! Jos tämä
-            riemukas leikki ei ole sinulle entuudestaan tuttu, niin kerrataanpa lyhyesti. Salaisessa joulupukissa ryhmä
-            ihmisiä arpoo toisilleen lahjojen saajat anonyymisti. Se on mitä mainioin tapa levittää joulumieltä ja
-            ilahduttaa jotakuta lähipiiristä.</p>
-        <p>Mutta nyt asiaan! Kenelle sinä pääset tänä vuonna toimimaan tonttuna?</p>
-        <p>🥁 rumpujen pärinää... 🥁</p>
+        <h1>Psst, {{email_recipient_name}}! Sinulle on tonttukeikka 🧑🏻‍🎄</h1>
+        <p>Joulupukin pajalla on taas ruuhkaa, joten Pukki on pestannut avukseen joukon salaisia tonttuja. Ja arvaa
+            kuka pääsi listalle? Juuri sinä. Onneksi olkoon, pestisi alkaa heti!</p>
+        <p>Homma on simppeli: jokainen meistä on saanut arvalla yhden lahjansaajan, eikä kukaan tiedä, kuka
+            tonttuilee kenellekin. Ei edes Pukki itse.</p>
+        <p>Ja sitten se tärkein. Sinun salainen kohteesi on...</p>
+        <p>🥁 rumpujen pärinää, kiitos... 🥁</p>
         <p>🇫🇮 Sinun lahjansaajaksesi on arvottu / 🇸🇪 Din presentmottagare är / 🇬🇧 The person you should get a gift for is</p>
         <h1 class="highlight">✨ {{gift_recipient_name}} ✨</h1>
-        <p>Muistathan, että salaisen joulupukin juju on pitää oma henkilöllisyys visusti salassa aina lahjojen
-            luovutushetkeen asti. Laita siis tonttulakki päähän, anna luovuutesi virrata ja valitse lahja, joka saa
-            lahjansaajan joulumielen hehkumaan. Sopiva hintaluokka lahjalle on noin 25-30 euroa, mutta voit toki käyttää
-            omaa harkintaasi.</p>
-        <p><strong>🎁 Merkitse pakettiin vain lahjansaajan nimi, ja lähettäjäksi vaikkapa "Joulupukki" tai jokin muu
-            kekseliäs
-            nimimerkki. Näin säilytät salaperäisyyden viimeiseen asti!</strong></p>
-        <p>☃️ Iloisia lahjahetkiä ja taianomaista joulunaikaa kaikille! 🎄</p>
-        <h3>Lahjaringissä mukana ovat:</h3>
+        <h3>Tonttuoperaation säännöt:</h3>
+        <ul>
+            <li><strong>🤫 Suu supussa.</strong> Henkilöllisyytesi pysyy salaisuutena lahjojen jakoon asti. Ei
+                vihjailua, ei vinkkailua, ei epäilyttävää virnuilua.</li>
+            <li><strong>💶 Budjetti noin 25–30 €.</strong> Oma harkinta on sallittua, ja luovuutta saa käyttää
+                rajattomasti, koska se on ilmaista.</li>
+            <li><strong>🎁 Paketin päälle vain saajan nimi.</strong> Lähettäjäksi käy "Joulupukki", "Tonttu
+                Tuntematon" tai mikä tahansa muu salanimi, jonka keksit.</li>
+        </ul>
+        <p>Onnea tonttuiluun, ja lämmintä, herkullista ja juuri sopivan kaoottista joulua! ☃️🎄</p>
+        <h3>Tämän vuoden tonttujoukko:</h3>
         <ul>
             {{participants}}
         </ul>
-        <p class="reminder">Psst! Muistathan ettei sinun tarvitse hankkia lahjaa kaikille listalla oleville, vain omalle lahjansaajallesi riittää.</p>
+        <p class="reminder">Psst! Lahja hankitaan vain omalle lahjansaajalle. Muut listalla ovat tonttukollegoitasi,
+            eivät ostoslistasi. 😉</p>
     </div>
 </body>
 </html>
